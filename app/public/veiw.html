@@ -47,6 +47,7 @@
             </div>
         </div>
         <h1 class="text-center">Hello World</h1>
+
     </div>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -59,7 +60,7 @@
     		$.get(currentURL + '/api/burgersList', function(data){
                 console.log(data);
     			for (var i = 0; i < data.length; i++) {
-    				$("#burgerList").append("<li>" + data[i].burger_name + "</li>");
+    				$("#burgerList").append("<li>" + data[i].burger_name + " <button type='button' class='btn btn-default' id='eat' data-id ='"+ data[i].id + "'>EAT</button>"+ "</li>" );
     			}
     		});
 
@@ -77,6 +78,11 @@
                         alert('adding burger...')
                     
                 })
+            });
+
+            $(document).on('click', '#eat', function(){
+                    var eaten = $(this).data("id");
+                console.log(eaten);
             });
     	//sample post. 
         // var currentURL = window.location.origin;
