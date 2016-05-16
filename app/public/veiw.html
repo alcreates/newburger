@@ -25,10 +25,10 @@
         </div>
         <div class="row">
             <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                <form action="" method="POST" class="form-inline" role="form">
+                <form action="" method="" class="form-inline" role="form">
                     <div class="form-group">
                         <label class="sr-only" for="">Make your Way! </label>
-                        <input type="email" class="form-control" id="" placeholder="Make your own burger">
+                        <input type="" class="form-control" id="" placeholder="Make your own burger">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -56,12 +56,36 @@
     <script type="text/javascript">
     		var currentURL = window.location.origin;
 
-    		$.get(currentURL + '/api/burgerList', function(data){
+    		$.get(currentURL + '/api/burgersList', function(data){
+                console.log(data);
     			for (var i = 0; i < data.length; i++) {
-    				$("#burgerList").append("<li>" + data[i] + "</li>");
+    				$("#burgerList").append("<li>" + data[i].burger_name + "</li>");
     			}
     		});
-    	
+
+            $("button").on("click", function(){
+                alert("test");
+                var newburger = {
+                    burger_name : $("input").val()
+                   
+
+                } 
+                $.post(currentURL + "/api/new", newburger)
+                .done(function(data){
+                    
+                        console.log(data);
+                        alert('adding burger...')
+                    
+                })
+            });
+    	//sample post. 
+        // var currentURL = window.location.origin;
+
+        //     $.post( currentURL + "/api/new", newCharacter)
+        //         .done(function(data){
+        //             console.log(data);
+        //             alert("Adding character...")
+        //         })
 
     
 

@@ -9,20 +9,20 @@ var source = {
         host: 'localhost',
         user: 'root',
         password: "darksouls",
-        database: "burger_db"
+        database: "finalburger"
     },
 
     jawsDB: {
         port: 3306,
-        host: 'l9dwvv6j64hlhpul.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: 'cm0zdmk2ez4igof5',
-        password: "yuhl98jsef0k7ul4",
+        host: 'l3855uft9zao23e2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'pzasq4kjn6w4on4c',
+        password: "cc9dn4s4isql5p3g",
         database: "lghowl35ljxl5vao" 
     }
 }
 
 // Selects a connection (can be changed quickly as needed)
-var selectedSource = source.jawsDB;
+var selectedSource = source.localhost;
 
 // Creates mySQL connection using Sequelize
 var sequelize = new Sequelize(selectedSource.database, selectedSource.user, selectedSource.password, {

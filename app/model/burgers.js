@@ -6,23 +6,27 @@ var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js"); 
 
 // Creates a "Character" model that matches up with DB
-var Burger = sequelize.define("character", {
+var Burgers = sequelize.define("burgers", {
 	id: {
 		type: Sequelize.INTEGER,
 		autoIncrement: true,
 		primaryKey: true
 	},
 	
-	name: {
+	burger_name: {
 		type: Sequelize.STRING,
 	},
 	devoured : {
 		type: Sequelize.BOOLEAN,
-	}
+		defaultValue : 0
+	},
+	date: {
+		type: Sequelize.DATE,
+	},
 });
 
 // Syncs with DB
-Burger.sync();
+Burgers.sync();
 
 // Makes the Character Model available for other files (will also create a table)
-module.exports = Burger;
+module.exports = Burgers;
