@@ -36,4 +36,23 @@ module.exports = function(app){
 		})
 		
 	});
+
+	app.post('/api/update', function(req,res){
+        	console.log(req)
+        	Burgers.update(
+            //set value to be updated
+            {
+                devoured : 1
+            },
+            // where clause/criteria
+            {   where : {
+                id: req.body.id
+                }
+            }
+                )
+        	.then(function(){
+                    res.redirect('/');
+                })
+    });
+    
 }

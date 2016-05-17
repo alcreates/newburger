@@ -60,7 +60,13 @@
     		$.get(currentURL + '/api/burgersList', function(data){
                 console.log(data);
     			for (var i = 0; i < data.length; i++) {
-    				$("#burgerList").append("<li>" + data[i].burger_name + " <button type='button' class='btn btn-default' id='eat' data-id ='"+ data[i].id + "'>EAT</button>"+ "</li>" );
+    				if(data[i].devoured == 0){
+
+                    $("#burgerList").append("<li>" + data[i].burger_name + " <button type='button' class='btn btn-default' id='eat' data-id ='"+ data[i].id + "'>EAT</button>"+ "</li>" );
+                    }else{
+
+                        $("#burgerEaten").append("<li> "+ data[i].burger_name + " </li>");
+                    }
     			}
     		});
 
@@ -81,8 +87,15 @@
             });
 
             $(document).on('click', '#eat', function(){
-                    var eaten = $(this).data("id");
+                    var eaten = {
+                        id : $(this).data("id")
+                    }
                 console.log(eaten);
+                $.post(currentURL + "/api/update", eaten)
+                .done(function(data){
+                    console.log(data);
+                    alert("burger devoured");
+                })
             });
     	//sample post. 
         // var currentURL = window.location.origin;
