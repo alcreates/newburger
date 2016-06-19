@@ -72,7 +72,7 @@
     		});
 
             $("button").on("click", function(){
-                alert("test");
+                
                 var newburger = {
                     burger_name : $("input").val()
                    
@@ -94,7 +94,7 @@
                 console.log(eaten);
                 $.post(currentURL + "/api/update", eaten)
                 .done(function(data){
-                    window.location = "http://localhost:8080/";
+                    window.location = "http://newburger.herokuapp.com/?";
                     alert("burger devoured");
                 })
             });
