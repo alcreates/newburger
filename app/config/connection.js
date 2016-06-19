@@ -17,7 +17,7 @@ var source = {
         host: 'l3855uft9zao23e2.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
         user: 'pzasq4kjn6w4on4c',
         password: "cc9dn4s4isql5p3g",
-        database: "z2x8rdon7gig5bpn" 
+        database: "z2x8rdon7glg5bpn" 
     }
 }
 
